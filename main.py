@@ -1,12 +1,14 @@
 import sys
 import pygame
 from scripts.settings import *
+from scripts.level import Level
 
 
 class Game:
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT)) #making a screen
+        self.level = Level(MAP_PATH) #loads the map, walkability grid and markers
         pygame.display.set_caption("Grieving Angels") #setting title for game
         self.clock = pygame.time.Clock()
         self.running = True
@@ -30,6 +32,7 @@ class Game:
 
     def draw(self): #The level and entities will all be drawn here
         self.screen.fill((0,0,0)) #the screen is initially black
+        self.level.render(self.screen) #draws the floor tiles
         pygame.display.update() #the screen is updated to display the frame
 
     def run(self):
