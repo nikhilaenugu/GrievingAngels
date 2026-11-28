@@ -59,10 +59,11 @@ class Level:
             self.junctions.append(pos)
 
 
-    def render(self, surf):
+    def render(self, surf, offset_x, offset_y):
         for row in range(self.map_height):
             for col in range(self.map_width):
                 if self.walkable_tiles[row][col]: #Checks if the tile is walkable
                     x = col * TILE_SIZE
                     y = row * TILE_SIZE
-                    surf.blit(self.tile_img, (x,y)) #Draws the tile onto the surface passed in
+                    #Draws tiles onto the surface passed in, displaced by offset amount of pixels
+                    surf.blit(self.tile_img, (x - offset_x, y - offset_y))

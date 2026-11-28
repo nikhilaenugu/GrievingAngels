@@ -9,6 +9,7 @@ FPS = 60
 # Tiles: art is drawn at 40 x 40 and scaled x2 to 80 x 80 on screen
 TILE_SIZE = 40
 SCALE = 2
+DISPLAY_WIDTH, DISPLAY_HEIGHT = SCREEN_WIDTH//SCALE , SCREEN_HEIGHT//SCALE
 
 # Game states
 MENU = "menu"
